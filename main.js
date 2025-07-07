@@ -1,8 +1,8 @@
 const numeroSenha = document.querySelector('.parametro-senha__texto');
-const campoSenha = document.querySelector('#campo-senha')
-const checkbox = document.querySelectorAll('.checkbox')
+const campoSenha = document.querySelector('#campo-senha');
+const checkbox = document.querySelectorAll('.checkbox');
 const botoes = document.querySelectorAll('.parametro-senha__botao');
-const forcaSenha = document.querySelector('forca')
+const forcaSenha = document.querySelector('.forca');
 const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const letrasMinusculas = 'abcdefghijklmnopqrstuvwxyz';
 const numeros = '0123456789';
@@ -33,38 +33,37 @@ function aumentaTamanho() {
 geraSenha();
 
 function geraSenha() {
-    let senha = '' ;
-    if (checkbox[0].cheked){
-        ]alfabeto = alfabeto + letrasMaiusculas;
-}
-if (checkbox[1].cheked){
-    alfabeto = alfabeto + letrasMinusculas;
-}
- if (checkbox[2].cheked){
-    alfabeto = alfabeto + numeros;
-}
- if (checkbox[3].cheked){
-    alfabeto = alfabeto + simbolos;
- }
+    let alfabeto = '';
+    if (checkbox[0].checked){
+        alfabeto = alfabeto + letrasMaiusculas;
+    }
+    if (checkbox[1].checked){
+        alfabeto = alfabeto + letrasMinusculas;
+    }
+    if (checkbox[2].checked){
+        alfabeto = alfabeto + numeros;
+    }
+    if (checkbox[3].checked){
+        alfabeto = alfabeto + simbolos;
+    }
 
- let senha = '';
+    let senha = '' ;
     for(let i=0; i < tamanhoSenha; i++) {
-        let numeroAleatorio = Math.random()*alfabeto.lenght;
+        let numeroAleatorio = Math.random()*alfabeto.length;
         numeroAleatorio = Math.floor(numeroAleatorio);
         senha = senha + alfabeto[numeroAleatorio];
     }
-    campoSenha.value = senha; 
-classificaSenha()/
+    campoSenha.value = senha;
+    classificaSenha();
 }
 
-forcaSenha.classificaSenha(){
-    forcaSenha.classList.remove('fraca', 'media', 'forte',);
+function classificaSenha() {
+    forcaSenha.classList.remove('fraca', 'media', 'forte');
     if (tamanhoSenha>11){
-function classList.add("forte");
-    }else if (tamanhoSenha<12){
+        forcaSenha.classList.add('forte');
+    } else if (tamanhoSenha>5 && tamanhoSenha<12) {
         forcaSenha.classList.add('media');
-    }else if (tamanhoSenha<=5)
-forcaSenha.classList.add('fraca');
+    } else if (tamanhoSenha<=5){
+        forcaSenha.classList.add('fraca');
     }
 }
-
